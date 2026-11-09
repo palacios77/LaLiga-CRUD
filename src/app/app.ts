@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// Componente principal: solo muestra la pantalla de Equipos
+
+import { Component } from '@angular/core';
+import { Equipos } from './equipos/equipos';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [Equipos],
+  template: '<app-equipos></app-equipos>'
 })
-export class App {
-  protected readonly title = signal('laliga-crud');
-}
+export class App { }

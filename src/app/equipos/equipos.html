@@ -1,0 +1,81 @@
+<nav class="navbar bg-dark">
+  <div class="container">
+    <span class="navbar-brand text-white">
+      <b class="text-danger">LALIGA</b> CRUD
+    </span>
+  </div>
+</nav>
+
+<div class="container mt-4">
+
+<div class="card">
+  <div class="card-header bg-danger text-white">Equipo</div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.nombre">
+      </div>
+      <div class="col-md-6">
+        <label>Ciudad</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.ciudad">
+      </div>
+      <div class="col-md-6">
+        <label>Estadio</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.estadio">
+      </div>
+      <div class="col-md-6">
+        <label>Entrenador</label>
+        <input type="text" class="form-control" [(ngModel)]="equipo.entrenador">
+      </div>
+      <div class="col-md-6">
+        <label>Año de fundacion</label>
+        <input type="number" class="form-control" [(ngModel)]="equipo.anioFundacion">
+      </div>
+      <div class="col-md-6">
+        <label>Titulos</label>
+        <input type="number" class="form-control" [(ngModel)]="equipo.titulos">
+      </div>
+    </div>
+
+    <br>
+    <button class="btn btn-success" (click)="guardar()">Guardar</button>
+    <button class="btn btn-secondary" (click)="limpiar()">Cancelar</button>
+
+  </div>
+</div>
+
+<br>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Ciudad</th>
+      <th>Estadio</th>
+      <th>Entrenador</th>
+      <th>Fundacion</th>
+      <th>Titulos</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (e of equipos; track e.id) {
+    <tr>
+      <td>{{e.nombre}}</td>
+      <td>{{e.ciudad}}</td>
+      <td>{{e.estadio}}</td>
+      <td>{{e.entrenador}}</td>
+      <td>{{e.anioFundacion}}</td>
+      <td>{{e.titulos}}</td>
+      <td>
+        <button class="btn btn-warning" (click)="seleccionar(e)">Editar</button>
+        <button class="btn btn-danger" (click)="eliminar(e)">Eliminar</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+</div>
